@@ -1,0 +1,92 @@
+{
+    "inputs": [
+        {
+            "command-line-flag": "--args",
+            "name": "Args",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[ARGS]",
+            "type": "String",
+            "id": "input_args",
+            "description": "A string. Additional parameters to the command."
+        },
+        {
+            "command-line-flag": "--environ",
+            "name": "Environ",
+            "default-value": "{}",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[ENVIRON]",
+            "type": "String",
+            "id": "input_environ",
+            "description": "A dictionary with keys which are a value of type 'str' and with values which are a value of type 'str'. Environment variables."
+        },
+        {
+            "command-line-flag": "--ignore_exception",
+            "name": "Ignore exception",
+            "default-value": "False",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[IGNORE_EXCEPTION]",
+            "type": "String",
+            "id": "input_ignore_exception",
+            "description": "A boolean. Print an error message instead of throwing an exception in case the interface fails to run."
+        },
+        {
+            "command-line-flag": "--in_file",
+            "name": "In file",
+            "optional": false,
+            "list": false,
+            "command-line-key": "[IN_FILE]",
+            "type": "File",
+            "id": "input_in_file",
+            "description": "An existing file name. Input 4d file to estimate the power spectrum."
+        },
+        {
+            "command-line-flag": "--out_file",
+            "name": "Out file",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[OUT_FILE]",
+            "type": "String",
+            "id": "input_out_file",
+            "description": "A file name. Name of output 4d file for power spectrum."
+        },
+        {
+            "command-line-flag": "--output_type",
+            "name": "Output type",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[OUTPUT_TYPE]",
+            "type": "String",
+            "id": "input_output_type",
+            "description": "'nifti_pair' or 'nifti_pair_gz' or 'nifti_gz' or 'nifti'. Fsl output type."
+        },
+        {
+            "command-line-flag": "--terminal_output",
+            "name": "Terminal output",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[TERMINAL_OUTPUT]",
+            "type": "String",
+            "id": "input_terminal_output",
+            "description": "'stream' or 'allatonce' or 'file' or 'none'. Control terminal output: `stream` - displays to terminal immediately (default), `allatonce` - waits till command is finished to display output, `file` - writes output to file, `none` - output is ignored."
+        }
+    ],
+    "name": "PowerSpectrum",
+    "command-line": "nipype_cmd nipype.interfaces.fsl PowerSpectrum [ARGS] [ENVIRON] [IGNORE_EXCEPTION] [IN_FILE] [OUT_FILE] [OUTPUT_TYPE] [TERMINAL_OUTPUT] ",
+    "tool-version": "5.0.6",
+    "docker-index": "http://index.docker.io",
+    "schema-version": "0.2-snapshot",
+    "output-files": [
+        {
+            "path-template": "[OUT_FILE]",
+            "optional": true,
+            "type": "File",
+            "name": "Out file",
+            "id": "output_out_file"
+        }
+    ],
+    "docker-image": "glatard/nipype_fsl",
+    "description": "PowerSpectrum, as implemented in Nipype (module: nipype.interfaces.fsl, interface: PowerSpectrum)."
+}
