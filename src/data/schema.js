@@ -593,7 +593,7 @@ const command=[
                 "optional": true,
                 "list": false,
                 "command-line-key": "[OUT_FILE]",
-                "type": "Boolean",
+                "type": "String",
                 "id": "input_out_file",
                 "description": "A file name. Registered output file."
             },

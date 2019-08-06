@@ -1,26 +1,6 @@
 const pipeline=
     {
         "pipeline": {
-            "connections": {
-                "connection": [
-                    {
-                        "_source": "BETnii.gz_1.OutputFile",
-                        "_sink": "smartline_BETnii.gz_FLIRTnii.gz_1.smartlineinput"
-                    },
-                    {
-                        "_source": "smartline_BETnii.gz_FLIRTnii.gz_1.smartlineoutput",
-                        "_sink": "FLIRTnii.gz_1.Input"
-                    },
-                    {
-                        "_source": "smartline_FLIRTnii.gz_BETnii.gz_1.smartlineoutput",
-                        "_sink": "BETnii.gz_2.InputFile"
-                    },
-                    {
-                        "_source": "FLIRTnii.gz_1.Output",
-                        "_sink": "smartline_FLIRTnii.gz_BETnii.gz_1.smartlineinput"
-                    }
-                ]
-            },
             "icons": {
                 "icon": {
                     "_id": "0",
@@ -28,1497 +8,713 @@ const pipeline=
                 }
             },
             "moduleGroup": {
-                "module": [
-                    {
-                        "metadata": {
-                            "data": {
-                                "_key": "__creationDateKey",
-                                "_value": ""
-                            }
-                        },
-                        "input": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "File",
-                                            "_extension": "",
-                                            "_description": "Any type of data file"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "pipeline://cranium.loni.usc.edu/smartline/Smartline.jar"
-                                },
-                                "_id": "smartline_BETnii.gz_FLIRTnii.gz_1.jarfile",
-                                "_name": "jar file",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "0",
-                                "_prefix": "-Djava.awt.headless=true -jar",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
+                "module": {
+                    "authors": {
+                        "author": {
+                            "_fullName": "D. Cornelius Hojatkashani",
+                            "_email": "cornelius.hojatkashani@loni.ucla.edu ",
+                            "_website": "http://loni.ucla.edu "
+                        }
+                    },
+                    "citations": {
+                        "citation": "S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004\n\nPMID: 15501092"
+                    },
+                    "tag": [
+                        "FMRI",
+                        "registration",
+                        "linear"
+                    ],
+                    "uri": "http://www.fmrib.ox.ac.uk/fsl/flirt/index.html",
+                    "metadata": {
+                        "data": {
+                            "_key": "__creationDateKey",
+                            "_value": "Mon Sep 18 19:45:14 PDT 2006"
+                        }
+                    },
+                    "input": [
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": [
+                                        {
                                             "_name": "Nii Gz",
                                             "_extension": "nii.gz",
                                             "_description": "Compressed Nifti"
+                                        },
+                                        {
+                                            "need": "hdr",
+                                            "_name": "Analyze Image",
+                                            "_extension": "img",
+                                            "_description": "Analyze Image file"
                                         }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
+                                    ]
                                 },
-                                "_id": "smartline_BETnii.gz_FLIRTnii.gz_1.smartlineinput",
-                                "_name": "smartline input",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "1"
+                                "_type": "File",
+                                "_cardinality": "1"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "1"
+                            "_id": "FLIRTnii.gz_1.Input",
+                            "_name": "Input",
+                            "_description": "Specifies the input volume file path.",
+                            "_required": "true",
+                            "_enabled": "true",
+                            "_order": "0",
+                            "_prefix": "-in",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": [
+                                        {
+                                            "_name": "Nii Gz",
+                                            "_extension": "nii.gz",
+                                            "_description": "Compressed Nifti"
+                                        },
+                                        {
+                                            "need": "hdr",
+                                            "_name": "Analyze Image",
+                                            "_extension": "img",
+                                            "_description": "Analyze Image file"
+                                        }
+                                    ]
                                 },
-                                "values": {
-                                    "value": "FSL"
-                                },
-                                "_id": "smartline_BETnii.gz_FLIRTnii.gz_1.softwarename",
-                                "_name": "software name",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "2"
+                                "_type": "File",
+                                "_cardinality": "1"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "4.1.4"
-                                },
-                                "_id": "smartline_BETnii.gz_FLIRTnii.gz_1.softwareversion",
-                                "_name": "software version",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "3"
-                            }
-                        ],
-                        "output": {
+                            "_id": "FLIRTnii.gz_1.Reference",
+                            "_name": "Reference",
+                            "_description": "Specifies the input reference image.",
+                            "_required": "true",
+                            "_enabled": "true",
+                            "_order": "1",
+                            "_prefix": "-ref",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
                             "format": {
                                 "fileTypes": {
                                     "filetype": {
-                                        "need": "hdr",
-                                        "_name": "Analyze Image",
-                                        "_extension": "img",
-                                        "_description": "Analyze Image file"
+                                        "_name": "XFM file",
+                                        "_extension": "xfm",
+                                        "_description": "MNC transformation"
                                     }
                                 },
                                 "_type": "File",
                                 "_cardinality": "1"
                             },
-                            "_id": "smartline_BETnii.gz_FLIRTnii.gz_1.smartlineoutput",
-                            "_name": "smartline output",
+                            "dependencies": {
+                                "dependent": "Apply XFM",
+                                "dependsOn": "Apply XFM"
+                            },
+                            "_id": "FLIRTnii.gz_1.InitialMatrixFile",
+                            "_name": "Initial Matrix File",
+                            "_description": "Specifies the Input 4x4 affine matrix - autodetects format ascii/medx.  Must specify <matrix-filename>.",
                             "_required": "false",
-                            "_enabled": "true",
-                            "_order": "4"
+                            "_enabled": "false",
+                            "_order": "3",
+                            "_prefix": "-init",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "_id": "smartline_BETnii.gz_FLIRTnii.gz_1",
-                        "_name": "smartline_BET (nii.gz)_FLIRT (nii.gz)",
-                        "_package": "Pipeline Utilities",
-                        "_description": "Smartline conversion from type (nii.gz) of module BET (nii.gz) to type (img,hdr) of module FLIRT (nii.gz) of package FSL",
-                        "_posX": "282",
-                        "_posY": "235",
-                        "_sourceCode": "",
-                        "_location": "pipeline://cranium.loni.usc.edu/java",
-                        "_gridVariables": "h_vmem=5.5",
-                        "_smartModule": "true"
-                    },
-                    {
-                        "authors": {
-                            "author": {
-                                "_fullName": "D. Cornelius Hojatkashani",
-                                "_email": "cornelius.hojatkashani@loni.ucla.edu ",
-                                "_website": "http://loni.ucla.edu "
-                            }
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "char",
+                                    "short",
+                                    "int",
+                                    "float",
+                                    "double"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.Datatype",
+                            "_name": "Datatype",
+                            "_description": "Forces the output to one of the following data types:  char, short, int, float, double.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "5",
+                            "_prefix": "-datatype",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "citations": {
-                            "citation": "S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004\n\nPMID: 15501092"
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "mutualinfo",
+                                    "corratio",
+                                    "normcorr",
+                                    "normmi",
+                                    "leastsq"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.Cost",
+                            "_name": "Cost",
+                            "_description": "Specifies the intensity based cost function.  \nOptions are: mutualinfo, corratio, normcorr, normmi, leastsq. \n(Default is corratio)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "7",
+                            "_prefix": "-cost",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "tag": [
-                            "FMRI",
-                            "registration",
-                            "linear"
-                        ],
-                        "uri": "http://www.fmrib.ox.ac.uk/fsl/flirt/index.html",
-                        "metadata": {
-                            "data": {
-                                "_key": "__creationDateKey",
-                                "_value": "Mon Sep 18 19:45:14 PDT 2006"
-                            }
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "mutualinfo",
+                                    "corratio",
+                                    "normcorr",
+                                    "normmi",
+                                    "leastsq"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.SearchCost",
+                            "_name": "Search Cost",
+                            "_description": "Specifies the type of search cost.  \nOptions are:  mutualinfo, corratio, normcorr, normmi, leastsq.\n(Default is corratio)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "6",
+                            "_prefix": "-searchcost",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "input": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Input",
-                                "_name": "Input",
-                                "_description": "Specifies the input volume file path.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "0",
-                                "_prefix": "-in",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "quaternion",
+                                    "euler"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
                             },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "pipeline://localhost//Users/cnmc/test/IBSR_01_ana_brainmask.nii.gz"
-                                },
-                                "_id": "FLIRTnii.gz_1.Reference",
-                                "_name": "Reference",
-                                "_description": "Specifies the input reference image.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "1",
-                                "_prefix": "-ref",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "XFM file",
-                                            "_extension": "xfm",
-                                            "_description": "MNC transformation"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "dependencies": {
-                                    "dependent": "Apply XFM",
-                                    "dependsOn": "Apply XFM"
-                                },
-                                "_id": "FLIRTnii.gz_1.InitialMatrixFile",
-                                "_name": "Initial Matrix File",
-                                "_description": "Specifies the Input 4x4 affine matrix - autodetects format ascii/medx.  Must specify <matrix-filename>.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "3",
-                                "_prefix": "-init",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "char",
-                                        "short",
-                                        "int",
-                                        "float",
-                                        "double"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Datatype",
-                                "_name": "Datatype",
-                                "_description": "Forces the output to one of the following data types:  char, short, int, float, double.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "5",
-                                "_prefix": "-datatype",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "mutualinfo",
-                                        "corratio",
-                                        "normcorr",
-                                        "normmi",
-                                        "leastsq"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Cost",
-                                "_name": "Cost",
-                                "_description": "Specifies the intensity based cost function.  \nOptions are: mutualinfo, corratio, normcorr, normmi, leastsq. \n(Default is corratio)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "7",
-                                "_prefix": "-cost",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "mutualinfo",
-                                        "corratio",
-                                        "normcorr",
-                                        "normmi",
-                                        "leastsq"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.SearchCost",
-                                "_name": "Search Cost",
-                                "_description": "Specifies the type of search cost.  \nOptions are:  mutualinfo, corratio, normcorr, normmi, leastsq.\n(Default is corratio)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "6",
-                                "_prefix": "-searchcost",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "quaternion",
-                                        "euler"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.AngleRep",
-                                "_name": "Angle Rep",
-                                "_description": "Specifies the type of angle rep.\nOptions are: {quaternion,euler}   (default is euler)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "8",
-                                "_prefix": "-anglerep",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "trilinear",
-                                        "nearestneighbour",
-                                        "sinc"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Interpolation",
-                                "_name": "Interpolation",
-                                "_description": "Specifies the type of final interpolation.  \nOptions are: trilinear, nearestneighbour, sinc.  \n(Default is trilinear)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "9",
-                                "_prefix": "-interp",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.SincWidth",
-                                "_name": "Sinc Width",
-                                "_description": "Specifies the full sinc width in voxels.\n(Default is 7)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "10",
-                                "_prefix": "-sincwidth",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Bins",
-                                "_name": "Bins",
-                                "_description": "Specifies the number of histogram bins.  \n(Default is 256)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "12",
-                                "_prefix": "-bins",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "6",
-                                        "7",
-                                        "9",
-                                        "12"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.TransformDegreesofFreedom",
-                                "_name": "Transform Degrees of Freedom",
-                                "_description": "Specifies the number of degrees of freedom.  \n(Default is 12)\n\nNote: Choose from 6,7,9 or 12 Degrees of Freedom (DOF) for full 3D registrations. Also includes a 3DOF 2D-to-2D registration mode which is selected using the -2D option. Note that it does not perform any search in 2D mode, and cannot deal with 2D to 3D registrations. More flexible DOF options are provided by the specific schedule files provided in $FSLDIR/etc/flirtsch.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "13",
-                                "_prefix": "-dof",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.NoSampling",
-                                "_name": "No Sampling",
-                                "_description": "Do not change input sampling.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "14",
-                                "_prefix": "-noresample",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.ForceScaling",
-                                "_name": "Force Scaling",
-                                "_description": "Forces rescaling even for low-res images.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "15",
-                                "_prefix": "-forcescaling",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.MinSampling",
-                                "_name": "Min Sampling",
-                                "_description": "Sets minimum voxel dimension for sampling (in mm).",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "16",
-                                "_prefix": "-minsampling",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "dependencies": {
-                                    "dependent": [
-                                        "Padding Size",
-                                        "Initial Matrix File"
-                                    ],
-                                    "dependsOn": "Initial Matrix File"
-                                },
-                                "_id": "FLIRTnii.gz_1.ApplyXFM",
-                                "_name": "Apply XFM",
-                                "_description": "Applies transform (no optimization).\n(Requires -init option)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "17",
-                                "_prefix": "-applyxfm",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.ApplyXFMwithIsotropicResample",
-                                "_name": "Apply XFM with Isotropic Resample",
-                                "_description": "As applyxfm but forces isotropic resampling.  \nMust specify <scale>.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "18",
-                                "_prefix": "-applyisoxfm",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "dependencies": {
-                                    "dependsOn": "Apply XFM"
-                                },
-                                "_id": "FLIRTnii.gz_1.PaddingSize",
-                                "_name": "Padding Size",
-                                "_description": "Interpolates outside image by size (in voxels).\n(Requires -applyxfm option)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "19",
-                                "_prefix": "-paddingsize",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "2"
-                                },
-                                "_id": "FLIRTnii.gz_1.SearchX",
-                                "_name": "Search X",
-                                "_description": "Specifies <min_angle> & <max_angle> for x-dimension  angular search range (in degrees). \n(Default is -90 90)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "20",
-                                "_prefix": "-searchrx",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "2"
-                                },
-                                "_id": "FLIRTnii.gz_1.SearchY",
-                                "_name": "Search Y",
-                                "_description": "Specifies <min_angle> & <max_angle> for y-dimension angular search range (in degrees). \n(Default is -90 90)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "21",
-                                "_prefix": "-searchry",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "2"
-                                },
-                                "_id": "FLIRTnii.gz_1.SearchZ",
-                                "_name": "Search Z",
-                                "_description": "Specifies <min_angle> & <max_angle> for z-dimension angular search range (in degrees). \n(Default is -90 90)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "22",
-                                "_prefix": "-searchrz",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.NoSearch",
-                                "_name": "No Search",
-                                "_description": "Sets all angular search ranges to 0 0.\n(Sets 0 0 for -searchrx, -searchry and -searchrz)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "23",
-                                "_prefix": "-nosearch",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.CoarseSearch",
-                                "_name": "Coarse Search",
-                                "_description": "Specifies angular search range by specifying <delta_angle> (in degrees).  \n(Default is 60)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "24",
-                                "_prefix": "-coarsesearch",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.FineSearch",
-                                "_name": "Fine Search",
-                                "_description": "Specifies angular search range by specifying <delta_angle> (in degrees).\n(Default is 18)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "25",
-                                "_prefix": "-finesearch ",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "File",
-                                            "_extension": "",
-                                            "_description": "Any type of data file"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Schedule",
-                                "_name": "Schedule",
-                                "_description": "Schedule file specifies what transformations/DOF are allowed and how the optimisation is performed.\nMust specify <schedule-file>. \n(Replaces default schedule)\n\nNote: Several other schedule files could be used - including 3D translation only schedules, etc. These are all stored in ${FSLDIR}/etc/flirtsch.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "26",
-                                "_prefix": "-schedule",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.ReferenceWeight",
-                                "_name": "Reference Weight",
-                                "_description": "Use weights for reference volume.  \nMust specify input <volume> for weights.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "27",
-                                "_prefix": "-refweight",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.InputWeight",
-                                "_name": "Input Weight",
-                                "_description": "Use weights for input volume.  \nMust specify input <volume> for weights.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "28",
-                                "_prefix": "-inweight",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.2D",
-                                "_name": "2D",
-                                "_description": "Use 2D rigid body mode.\n(Ignores -dof option)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "29",
-                                "_prefix": "-2D",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Verbose",
-                                "_name": "Verbose",
-                                "_description": "Specifies level of verboseness.  \n(0 is least and default)",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "30",
-                                "_prefix": "-verbose",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.Pause",
-                                "_name": "Pause",
-                                "_description": "Enables pause at each stage of transformation.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "31",
-                                "_prefix": "-i",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "enumeration": [
-                                        "rectangular",
-                                        "hanning",
-                                        "blackman"
-                                    ],
-                                    "_type": "Enumerated",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.SincWindow",
-                                "_name": "Sinc Window",
-                                "_description": "Specifies the type of sinc window.  \nOptions are: rectangular, hanning, blackman.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "11",
-                                "_prefix": "-sincwindow",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.Version",
-                                "_name": "Version",
-                                "_description": "Prints the version information and exit",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "32",
-                                "_prefix": "-version",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "FLIRTnii.gz_1.Help",
-                                "_name": "Help",
-                                "_description": "Prints help information and exit.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "33",
-                                "_prefix": "-help",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            }
-                        ],
-                        "output": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.Output",
-                                "_name": "Output",
-                                "_description": "Specifies the output volume file path.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "2",
-                                "_prefix": "-out",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "XFM file",
-                                            "_extension": "xfm",
-                                            "_description": "MNC transformation"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "FLIRTnii.gz_1.OutputMatrixFile",
-                                "_name": "Output Matrix File",
-                                "_description": "Outputs the matrix in 4x4 ascii format.\nMust specify <matrix-filename>.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "4",
-                                "_prefix": "-omat",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            }
-                        ],
-                        "license": "http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html\n\nLICENCE\n\nFMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford\n(the \"Software\")\n\nThe Software remains the property of the University of Oxford (\"the\nUniversity\").\n\nThe Software is distributed \"AS IS\" under this Licence solely for\nnon-commercial use in the hope that it will be useful, but in order\nthat the University as a charitable foundation protects its assets for\nthe benefit of its educational and research purposes, the University\nmakes clear that no condition is made or to be implied, nor is any\nwarranty given or to be implied, as to the accuracy of the Software,\nor that it will be suitable for any particular purpose or for use\nunder any specific conditions. Furthermore, the University disclaims\nall responsibility for the use which is made of the Software. It\nfurther disclaims any liability for the outcomes arising from using\nthe Software.\n\nThe Licensee agrees to indemnify the University and hold the\nUniversity harmless from and against any and all claims, damages and\nliabilities asserted by third parties (including claims for\nnegligence) which arise directly or indirectly from the use of the\nSoftware or the sale of any products based on the Software.\n\nNo part of the Software may be reproduced, modified, transmitted or\ntransferred in any form or by any means, electronic or mechanical,\nwithout the express permission of the University. The permission of\nthe University is not required if the said reproduction, modification,\ntransmission or transference is done without financial return, the\nconditions of this Licence are imposed upon the receiver of the\nproduct, and all original and amended source code is included in any\ntransmitted product. You may be held legally responsible for any\ncopyright infringement that is caused or encouraged by your failure to\nabide by these terms and conditions.\n\nYou are not permitted under this Licence to use this Software\ncommercially. Use for which any financial return is received shall be\ndefined as commercial use, and includes (1) integration of all or part\nof the source code or the Software into a product for sale or license\nby or on behalf of Licensee to third parties or (2) use of the\nSoftware or any derivative of it for research with the final aim of\ndeveloping software products for sale or license to a third party or\n(3) use of the Software or any derivative of it for research with the\nfinal aim of developing non-software products for sale or license to a\nthird party, or (4) use of the Software to provide any service to an\nexternal organisation for which payment is received. If you are\ninterested in using the Software commercially, please contact Isis\nInnovation Limited (\"Isis\"), the technology transfer company of the\nUniversity, to negotiate a licence. Contact details are:\ninnovation@isis.ox.ac.uk quoting reference BS/3497.",
-                        "_id": "FLIRTnii.gz_1",
-                        "_name": "FLIRT (nii.gz)",
-                        "_package": "FSL",
-                        "_version": "4.1.4",
-                        "_description": "FLIRT (FMRIB's Linear Image Registration Tool) is a fully automated robust and accurate tool for linear (affine) intra- and inter-modal brain image registration. ",
-                        "_icon": "0",
-                        "_posX": "425",
-                        "_posY": "188",
-                        "_sourceCode": "",
-                        "_location": "pipeline://cranium.loni.usc.edu/flirt",
-                        "_executableVersion": "4.1.4"
-                    },
-                    {
-                        "authors": {
-                            "author": {
-                                "_fullName": "D. Cornelius Hojatkashani",
-                                "_email": "cornelius.hojatkashani@loni.ucla.edu ",
-                                "_website": "http://loni.ucla.edu "
-                            }
+                            "_id": "FLIRTnii.gz_1.AngleRep",
+                            "_name": "Angle Rep",
+                            "_description": "Specifies the type of angle rep.\nOptions are: {quaternion,euler}   (default is euler)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "8",
+                            "_prefix": "-anglerep",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "citations": {
-                            "citation": "S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004\n\nPMID: 15501092"
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "trilinear",
+                                    "nearestneighbour",
+                                    "sinc"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.Interpolation",
+                            "_name": "Interpolation",
+                            "_description": "Specifies the type of final interpolation.  \nOptions are: trilinear, nearestneighbour, sinc.  \n(Default is trilinear)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "9",
+                            "_prefix": "-interp",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "tag": "skull stripping",
-                        "uri": "http://www.fmrib.ox.ac.uk/fsl/bet2/index.html",
-                        "metadata": {
-                            "data": {
-                                "_key": "__creationDateKey",
-                                "_value": "Mon Sep 18 19:22:04 PDT 2006"
-                            }
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.SincWidth",
+                            "_name": "Sinc Width",
+                            "_description": "Specifies the full sinc width in voxels.\n(Default is 7)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "10",
+                            "_prefix": "-sincwidth",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "input": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "pipeline://localhost//Users/cnmc/test/IBSR_01_ana.nii.gz"
-                                },
-                                "_id": "BETnii.gz_1.InputFile",
-                                "_name": "Input File",
-                                "_description": "Specifies the input file.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "0"
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_1.OutlineBrainsurface",
-                                "_name": "Outline Brainsurface",
-                                "_description": "Generates brain surface outline overlaid onto original image.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "2",
-                                "_prefix": "-o",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_1.DontSegmentOutput",
-                                "_name": "Don't Segment Output",
-                                "_description": "Don't generate segmented brain image output.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "5",
-                                "_prefix": "-n",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_1.FractionalIntensityThreshold",
-                                "_name": "Fractional Intensity Threshold",
-                                "_description": "Specifies fractional intensity threshold (0->1); default=0.5; smaller values give larger brain outline estimates",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "6",
-                                "_prefix": "-f",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_1.VerticalGradientThreshold",
-                                "_name": "Vertical Gradient Threshold",
-                                "_description": "Specifies vertical gradient in fractional intensity threshold (-1->1). \n(Default=0)\nNote: Positive values give larger brain outline at bottom, smaller at top.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "7",
-                                "_prefix": "-g",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_1.HeadRadius",
-                                "_name": "Head Radius",
-                                "_description": "Specifies head radius (mm not voxels)\nNote: Initial surface sphere is set to half of this.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "9",
-                                "_prefix": "-r",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "3"
-                                },
-                                "_id": "BETnii.gz_1.CenterofGravity",
-                                "_name": "Center of Gravity",
-                                "_description": "Specifies center-of-gravity (mm not voxels) of initial mesh surface.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "10",
-                                "_prefix": "-c",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_1.ApplyThresholding",
-                                "_name": "Apply Thresholding",
-                                "_description": "Apply thresholding to segmented brain image and mask.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "11",
-                                "_prefix": "-t",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_1.Verbose",
-                                "_name": "Verbose",
-                                "_description": "Enables verbose text output.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "8",
-                                "_prefix": "-v",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            }
-                        ],
-                        "output": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_1.OutputFile",
-                                "_name": "Output File",
-                                "_description": "Specifies the output file.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "1"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "transform": [
-                                        {
-                                            "_order": "0",
-                                            "_operation": "Subtract",
-                                            "__text": ".nii.gz"
-                                        },
-                                        {
-                                            "_order": "1",
-                                            "_operation": "Append",
-                                            "__text": "_mask.nii.gz"
-                                        }
-                                    ],
-                                    "_type": "File",
-                                    "_cardinality": "1",
-                                    "_transformationBase": "Output File"
-                                },
-                                "_id": "BETnii.gz_1.CreateBinaryMask",
-                                "_name": "Create Binary Mask",
-                                "_description": "Generates binary brain mask.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "3",
-                                "_prefix": "-m ",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false",
-                                "_includeTransformedParameter": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "transform": [
-                                        {
-                                            "_order": "0",
-                                            "_operation": "Subtract",
-                                            "__text": ".img"
-                                        },
-                                        {
-                                            "_order": "1",
-                                            "_operation": "Subtract",
-                                            "__text": ".hdr"
-                                        },
-                                        {
-                                            "_order": "2",
-                                            "_operation": "Append",
-                                            "__text": "_skull.img"
-                                        }
-                                    ],
-                                    "_type": "File",
-                                    "_cardinality": "1",
-                                    "_transformationBase": "Output File"
-                                },
-                                "_id": "BETnii.gz_1.GenerateSkullImage",
-                                "_name": "Generate Skull Image",
-                                "_description": "Generates approximate skull image.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "4",
-                                "_prefix": "-s",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false",
-                                "_includeTransformedParameter": "false"
-                            }
-                        ],
-                        "license": "http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html\n\nLICENCE\n\nFMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford\n(the \"Software\")\n\nThe Software remains the property of the University of Oxford (\"the\nUniversity\").\n\nThe Software is distributed \"AS IS\" under this Licence solely for\nnon-commercial use in the hope that it will be useful, but in order\nthat the University as a charitable foundation protects its assets for\nthe benefit of its educational and research purposes, the University\nmakes clear that no condition is made or to be implied, nor is any\nwarranty given or to be implied, as to the accuracy of the Software,\nor that it will be suitable for any particular purpose or for use\nunder any specific conditions. Furthermore, the University disclaims\nall responsibility for the use which is made of the Software. It\nfurther disclaims any liability for the outcomes arising from using\nthe Software.\n\nThe Licensee agrees to indemnify the University and hold the\nUniversity harmless from and against any and all claims, damages and\nliabilities asserted by third parties (including claims for\nnegligence) which arise directly or indirectly from the use of the\nSoftware or the sale of any products based on the Software.\n\nNo part of the Software may be reproduced, modified, transmitted or\ntransferred in any form or by any means, electronic or mechanical,\nwithout the express permission of the University. The permission of\nthe University is not required if the said reproduction, modification,\ntransmission or transference is done without financial return, the\nconditions of this Licence are imposed upon the receiver of the\nproduct, and all original and amended source code is included in any\ntransmitted product. You may be held legally responsible for any\ncopyright infringement that is caused or encouraged by your failure to\nabide by these terms and conditions.\n\nYou are not permitted under this Licence to use this Software\ncommercially. Use for which any financial return is received shall be\ndefined as commercial use, and includes (1) integration of all or part\nof the source code or the Software into a product for sale or license\nby or on behalf of Licensee to third parties or (2) use of the\nSoftware or any derivative of it for research with the final aim of\ndeveloping software products for sale or license to a third party or\n(3) use of the Software or any derivative of it for research with the\nfinal aim of developing non-software products for sale or license to a\nthird party, or (4) use of the Software to provide any service to an\nexternal organisation for which payment is received. If you are\ninterested in using the Software commercially, please contact Isis\nInnovation Limited (\"Isis\"), the technology transfer company of the\nUniversity, to negotiate a licence. Contact details are:\ninnovation@isis.ox.ac.uk quoting reference BS/3497.",
-                        "_id": "BETnii.gz_1",
-                        "_name": "BET (nii.gz)",
-                        "_package": "FSL",
-                        "_version": "4.1.4",
-                        "_description": "BET (Brain Extraction Tool) deletes non-brain tissue from an image of the whole head. It can also estimate the external skull surface.",
-                        "_icon": "0",
-                        "_posX": "91",
-                        "_posY": "218",
-                        "_sourceCode": "",
-                        "_location": "pipeline://cranium.loni.usc.edu/bet",
-                        "_executableVersion": "4.1.4"
-                    },
-                    {
-                        "authors": {
-                            "author": {
-                                "_fullName": "D. Cornelius Hojatkashani",
-                                "_email": "cornelius.hojatkashani@loni.ucla.edu ",
-                                "_website": "http://loni.ucla.edu "
-                            }
+                            "_id": "FLIRTnii.gz_1.Bins",
+                            "_name": "Bins",
+                            "_description": "Specifies the number of histogram bins.  \n(Default is 256)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "12",
+                            "_prefix": "-bins",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "citations": {
-                            "citation": "S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004\n\nPMID: 15501092"
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "6",
+                                    "7",
+                                    "9",
+                                    "12"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.TransformDegreesofFreedom",
+                            "_name": "Transform Degrees of Freedom",
+                            "_description": "Specifies the number of degrees of freedom.  \n(Default is 12)\n\nNote: Choose from 6,7,9 or 12 Degrees of Freedom (DOF) for full 3D registrations. Also includes a 3DOF 2D-to-2D registration mode which is selected using the -2D option. Note that it does not perform any search in 2D mode, and cannot deal with 2D to 3D registrations. More flexible DOF options are provided by the specific schedule files provided in $FSLDIR/etc/flirtsch.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "13",
+                            "_prefix": "-dof",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "tag": "skull stripping",
-                        "uri": "http://www.fmrib.ox.ac.uk/fsl/bet2/index.html",
-                        "metadata": {
-                            "data": {
-                                "_key": "__creationDateKey",
-                                "_value": "Mon Sep 18 19:22:04 PDT 2006"
-                            }
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.NoSampling",
+                            "_name": "No Sampling",
+                            "_description": "Do not change input sampling.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "14",
+                            "_prefix": "-noresample",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "input": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": [
-                                            {
-                                                "_name": "Nii Gz",
-                                                "_extension": "nii.gz",
-                                                "_description": "Compressed Nifti"
-                                            },
-                                            {
-                                                "need": "hdr",
-                                                "_name": "Analyze Image",
-                                                "_extension": "img",
-                                                "_description": "Analyze Image file"
-                                            }
-                                        ]
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_2.InputFile",
-                                "_name": "Input File",
-                                "_description": "Specifies the input file.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "0"
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_2.OutlineBrainsurface",
-                                "_name": "Outline Brainsurface",
-                                "_description": "Generates brain surface outline overlaid onto original image.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "2",
-                                "_prefix": "-o",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_2.DontSegmentOutput",
-                                "_name": "Don't Segment Output",
-                                "_description": "Don't generate segmented brain image output.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "5",
-                                "_prefix": "-n",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_2.FractionalIntensityThreshold",
-                                "_name": "Fractional Intensity Threshold",
-                                "_description": "Specifies fractional intensity threshold (0->1); default=0.5; smaller values give larger brain outline estimates",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "6",
-                                "_prefix": "-f",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_2.VerticalGradientThreshold",
-                                "_name": "Vertical Gradient Threshold",
-                                "_description": "Specifies vertical gradient in fractional intensity threshold (-1->1). \n(Default=0)\nNote: Positive values give larger brain outline at bottom, smaller at top.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "7",
-                                "_prefix": "-g",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_2.HeadRadius",
-                                "_name": "Head Radius",
-                                "_description": "Specifies head radius (mm not voxels)\nNote: Initial surface sphere is set to half of this.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "9",
-                                "_prefix": "-r",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "Number",
-                                    "_cardinality": "3"
-                                },
-                                "_id": "BETnii.gz_2.CenterofGravity",
-                                "_name": "Center of Gravity",
-                                "_description": "Specifies center-of-gravity (mm not voxels) of initial mesh surface.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "10",
-                                "_prefix": "-c",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_2.ApplyThresholding",
-                                "_name": "Apply Thresholding",
-                                "_description": "Apply thresholding to segmented brain image and mask.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "11",
-                                "_prefix": "-t",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "0"
-                                },
-                                "_id": "BETnii.gz_2.Verbose",
-                                "_name": "Verbose",
-                                "_description": "Enables verbose text output.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "8",
-                                "_prefix": "-v",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
-                            }
-                        ],
-                        "output": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "BETnii.gz_2.OutputFile",
-                                "_name": "Output File",
-                                "_description": "Specifies the output file.",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "1"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "transform": [
-                                        {
-                                            "_order": "0",
-                                            "_operation": "Subtract",
-                                            "__text": ".nii.gz"
-                                        },
-                                        {
-                                            "_order": "1",
-                                            "_operation": "Append",
-                                            "__text": "_mask.nii.gz"
-                                        }
-                                    ],
-                                    "_type": "File",
-                                    "_cardinality": "1",
-                                    "_transformationBase": "Output File"
-                                },
-                                "_id": "BETnii.gz_2.CreateBinaryMask",
-                                "_name": "Create Binary Mask",
-                                "_description": "Generates binary brain mask.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "3",
-                                "_prefix": "-m ",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false",
-                                "_includeTransformedParameter": "false"
-                            },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "transform": [
-                                        {
-                                            "_order": "0",
-                                            "_operation": "Subtract",
-                                            "__text": ".img"
-                                        },
-                                        {
-                                            "_order": "1",
-                                            "_operation": "Subtract",
-                                            "__text": ".hdr"
-                                        },
-                                        {
-                                            "_order": "2",
-                                            "_operation": "Append",
-                                            "__text": "_skull.img"
-                                        }
-                                    ],
-                                    "_type": "File",
-                                    "_cardinality": "1",
-                                    "_transformationBase": "Output File"
-                                },
-                                "_id": "BETnii.gz_2.GenerateSkullImage",
-                                "_name": "Generate Skull Image",
-                                "_description": "Generates approximate skull image.",
-                                "_required": "false",
-                                "_enabled": "false",
-                                "_order": "4",
-                                "_prefix": "-s",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false",
-                                "_includeTransformedParameter": "false"
-                            }
-                        ],
-                        "executableAuthors": {
-                            "author": [
-                                {
-                                    "_fullName": "Steve Smith",
-                                    "_email": "steve@fmrib.ox.ac.uk",
-                                    "_website": "http://www.fmrib.ox.ac.uk/Members/steve"
-                                },
-                                {
-                                    "_fullName": "Mark Jenkinson",
-                                    "_email": "mark@fmrib.ox.ac.uk",
-                                    "_website": "http://users.fmrib.ox.ac.uk/~mark/ "
-                                }
-                            ]
+                            "_id": "FLIRTnii.gz_1.ForceScaling",
+                            "_name": "Force Scaling",
+                            "_description": "Forces rescaling even for low-res images.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "15",
+                            "_prefix": "-forcescaling",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "license": "http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html\n\nLICENCE\n\nFMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford\n(the \"Software\")\n\nThe Software remains the property of the University of Oxford (\"the\nUniversity\").\n\nThe Software is distributed \"AS IS\" under this Licence solely for\nnon-commercial use in the hope that it will be useful, but in order\nthat the University as a charitable foundation protects its assets for\nthe benefit of its educational and research purposes, the University\nmakes clear that no condition is made or to be implied, nor is any\nwarranty given or to be implied, as to the accuracy of the Software,\nor that it will be suitable for any particular purpose or for use\nunder any specific conditions. Furthermore, the University disclaims\nall responsibility for the use which is made of the Software. It\nfurther disclaims any liability for the outcomes arising from using\nthe Software.\n\nThe Licensee agrees to indemnify the University and hold the\nUniversity harmless from and against any and all claims, damages and\nliabilities asserted by third parties (including claims for\nnegligence) which arise directly or indirectly from the use of the\nSoftware or the sale of any products based on the Software.\n\nNo part of the Software may be reproduced, modified, transmitted or\ntransferred in any form or by any means, electronic or mechanical,\nwithout the express permission of the University. The permission of\nthe University is not required if the said reproduction, modification,\ntransmission or transference is done without financial return, the\nconditions of this Licence are imposed upon the receiver of the\nproduct, and all original and amended source code is included in any\ntransmitted product. You may be held legally responsible for any\ncopyright infringement that is caused or encouraged by your failure to\nabide by these terms and conditions.\n\nYou are not permitted under this Licence to use this Software\ncommercially. Use for which any financial return is received shall be\ndefined as commercial use, and includes (1) integration of all or part\nof the source code or the Software into a product for sale or license\nby or on behalf of Licensee to third parties or (2) use of the\nSoftware or any derivative of it for research with the final aim of\ndeveloping software products for sale or license to a third party or\n(3) use of the Software or any derivative of it for research with the\nfinal aim of developing non-software products for sale or license to a\nthird party, or (4) use of the Software to provide any service to an\nexternal organisation for which payment is received. If you are\ninterested in using the Software commercially, please contact Isis\nInnovation Limited (\"Isis\"), the technology transfer company of the\nUniversity, to negotiate a licence. Contact details are:\ninnovation@isis.ox.ac.uk quoting reference BS/3497.",
-                        "_id": "BETnii.gz_2",
-                        "_name": "BET (nii.gz)",
-                        "_package": "FSL",
-                        "_version": "4.1.4",
-                        "_description": "BET (Brain Extraction Tool) deletes non-brain tissue from an image of the whole head. It can also estimate the external skull surface.",
-                        "_icon": "0",
-                        "_posX": "755",
-                        "_posY": "179",
-                        "_sourceCode": "",
-                        "_location": "pipeline://cranium.loni.usc.edu/bet",
-                        "_executableVersion": "4.1.4"
-                    },
-                    {
-                        "input": [
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "File",
-                                            "_extension": "",
-                                            "_description": "Any type of data file"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "pipeline://cranium.loni.usc.edu/smartline/Smartline.jar"
-                                },
-                                "_id": "smartline_FLIRTnii.gz_BETnii.gz_1.jarfile",
-                                "_name": "jar file",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "0",
-                                "_prefix": "-Djava.awt.headless=true -jar",
-                                "_prefixSpaced": "true",
-                                "_prefixAllArgs": "false"
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
                             },
-                            {
-                                "format": {
-                                    "fileTypes": {
-                                        "filetype": {
-                                            "_name": "Nii Gz",
-                                            "_extension": "nii.gz",
-                                            "_description": "Compressed Nifti"
-                                        }
-                                    },
-                                    "_type": "File",
-                                    "_cardinality": "1"
-                                },
-                                "_id": "smartline_FLIRTnii.gz_BETnii.gz_1.smartlineinput",
-                                "_name": "smartline input",
-                                "_required": "true",
-                                "_enabled": "true",
-                                "_order": "1"
+                            "_id": "FLIRTnii.gz_1.MinSampling",
+                            "_name": "Min Sampling",
+                            "_description": "Sets minimum voxel dimension for sampling (in mm).",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "16",
+                            "_prefix": "-minsampling",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "FSL"
-                                },
-                                "_id": "smartline_FLIRTnii.gz_BETnii.gz_1.softwarename",
-                                "_name": "software name",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "2"
+                            "dependencies": {
+                                "dependent": [
+                                    "Padding Size",
+                                    "Initial Matrix File"
+                                ],
+                                "dependsOn": "Initial Matrix File"
                             },
-                            {
-                                "format": {
-                                    "_type": "String",
-                                    "_cardinality": "1"
-                                },
-                                "values": {
-                                    "value": "4.1.4"
-                                },
-                                "_id": "smartline_FLIRTnii.gz_BETnii.gz_1.softwareversion",
-                                "_name": "software version",
-                                "_required": "false",
-                                "_enabled": "true",
-                                "_predefined": "true",
-                                "_order": "3"
-                            }
-                        ],
-                        "output": {
+                            "_id": "FLIRTnii.gz_1.ApplyXFM",
+                            "_name": "Apply XFM",
+                            "_description": "Applies transform (no optimization).\n(Requires -init option)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "17",
+                            "_prefix": "-applyxfm",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.ApplyXFMwithIsotropicResample",
+                            "_name": "Apply XFM with Isotropic Resample",
+                            "_description": "As applyxfm but forces isotropic resampling.  \nMust specify <scale>.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "18",
+                            "_prefix": "-applyisoxfm",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "dependencies": {
+                                "dependsOn": "Apply XFM"
+                            },
+                            "_id": "FLIRTnii.gz_1.PaddingSize",
+                            "_name": "Padding Size",
+                            "_description": "Interpolates outside image by size (in voxels).\n(Requires -applyxfm option)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "19",
+                            "_prefix": "-paddingsize",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "2"
+                            },
+                            "_id": "FLIRTnii.gz_1.SearchX",
+                            "_name": "Search X",
+                            "_description": "Specifies <min_angle> & <max_angle> for x-dimension  angular search range (in degrees). \n(Default is -90 90)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "20",
+                            "_prefix": "-searchrx",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "2"
+                            },
+                            "_id": "FLIRTnii.gz_1.SearchY",
+                            "_name": "Search Y",
+                            "_description": "Specifies <min_angle> & <max_angle> for y-dimension angular search range (in degrees). \n(Default is -90 90)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "21",
+                            "_prefix": "-searchry",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "2"
+                            },
+                            "_id": "FLIRTnii.gz_1.SearchZ",
+                            "_name": "Search Z",
+                            "_description": "Specifies <min_angle> & <max_angle> for z-dimension angular search range (in degrees). \n(Default is -90 90)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "22",
+                            "_prefix": "-searchrz",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.NoSearch",
+                            "_name": "No Search",
+                            "_description": "Sets all angular search ranges to 0 0.\n(Sets 0 0 for -searchrx, -searchry and -searchrz)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "23",
+                            "_prefix": "-nosearch",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.CoarseSearch",
+                            "_name": "Coarse Search",
+                            "_description": "Specifies angular search range by specifying <delta_angle> (in degrees).  \n(Default is 60)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "24",
+                            "_prefix": "-coarsesearch",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.FineSearch",
+                            "_name": "Fine Search",
+                            "_description": "Specifies angular search range by specifying <delta_angle> (in degrees).\n(Default is 18)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "25",
+                            "_prefix": "-finesearch ",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
                             "format": {
                                 "fileTypes": {
                                     "filetype": {
-                                        "need": "hdr",
-                                        "_name": "Analyze Image",
-                                        "_extension": "img",
-                                        "_description": "Analyze Image file"
+                                        "_name": "File",
+                                        "_extension": "",
+                                        "_description": "Any type of data file"
                                     }
                                 },
                                 "_type": "File",
                                 "_cardinality": "1"
                             },
-                            "_id": "smartline_FLIRTnii.gz_BETnii.gz_1.smartlineoutput",
-                            "_name": "smartline output",
+                            "_id": "FLIRTnii.gz_1.Schedule",
+                            "_name": "Schedule",
+                            "_description": "Schedule file specifies what transformations/DOF are allowed and how the optimisation is performed.\nMust specify <schedule-file>. \n(Replaces default schedule)\n\nNote: Several other schedule files could be used - including 3D translation only schedules, etc. These are all stored in ${FSLDIR}/etc/flirtsch.",
                             "_required": "false",
-                            "_enabled": "true",
-                            "_order": "4"
+                            "_enabled": "false",
+                            "_order": "26",
+                            "_prefix": "-schedule",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
                         },
-                        "_id": "smartline_FLIRTnii.gz_BETnii.gz_1",
-                        "_name": "smartline_FLIRT (nii.gz)_BET (nii.gz)",
-                        "_package": "Pipeline Utilities",
-                        "_description": "Smartline conversion from type (nii.gz) of module FLIRT (nii.gz) to type (img,hdr) of module BET (nii.gz) of package FSL",
-                        "_posX": "622",
-                        "_posY": "216",
-                        "_sourceCode": "",
-                        "_location": "pipeline://cranium.loni.usc.edu/java",
-                        "_gridVariables": "h_vmem=5.5",
-                        "_smartModule": "true"
-                    }
-                ],
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": [
+                                        {
+                                            "_name": "Nii Gz",
+                                            "_extension": "nii.gz",
+                                            "_description": "Compressed Nifti"
+                                        },
+                                        {
+                                            "need": "hdr",
+                                            "_name": "Analyze Image",
+                                            "_extension": "img",
+                                            "_description": "Analyze Image file"
+                                        }
+                                    ]
+                                },
+                                "_type": "File",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.ReferenceWeight",
+                            "_name": "Reference Weight",
+                            "_description": "Use weights for reference volume.  \nMust specify input <volume> for weights.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "27",
+                            "_prefix": "-refweight",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": [
+                                        {
+                                            "_name": "Nii Gz",
+                                            "_extension": "nii.gz",
+                                            "_description": "Compressed Nifti"
+                                        },
+                                        {
+                                            "need": "hdr",
+                                            "_name": "Analyze Image",
+                                            "_extension": "img",
+                                            "_description": "Analyze Image file"
+                                        }
+                                    ]
+                                },
+                                "_type": "File",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.InputWeight",
+                            "_name": "Input Weight",
+                            "_description": "Use weights for input volume.  \nMust specify input <volume> for weights.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "28",
+                            "_prefix": "-inweight",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.2D",
+                            "_name": "2D",
+                            "_description": "Use 2D rigid body mode.\n(Ignores -dof option)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "29",
+                            "_prefix": "-2D",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "Number",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.Verbose",
+                            "_name": "Verbose",
+                            "_description": "Specifies level of verboseness.  \n(0 is least and default)",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "30",
+                            "_prefix": "-verbose",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.Pause",
+                            "_name": "Pause",
+                            "_description": "Enables pause at each stage of transformation.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "31",
+                            "_prefix": "-i",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "enumeration": [
+                                    "rectangular",
+                                    "hanning",
+                                    "blackman"
+                                ],
+                                "_type": "Enumerated",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.SincWindow",
+                            "_name": "Sinc Window",
+                            "_description": "Specifies the type of sinc window.  \nOptions are: rectangular, hanning, blackman.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "11",
+                            "_prefix": "-sincwindow",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.Version",
+                            "_name": "Version",
+                            "_description": "Prints the version information and exit",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "32",
+                            "_prefix": "-version",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "_type": "String",
+                                "_cardinality": "0"
+                            },
+                            "_id": "FLIRTnii.gz_1.Help",
+                            "_name": "Help",
+                            "_description": "Prints help information and exit.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "33",
+                            "_prefix": "-help",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        }
+                    ],
+                    "output": [
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": {
+                                        "_name": "Nii Gz",
+                                        "_extension": "nii.gz",
+                                        "_description": "Compressed Nifti"
+                                    }
+                                },
+                                "_type": "File",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.Output",
+                            "_name": "Output",
+                            "_description": "Specifies the output volume file path.",
+                            "_required": "true",
+                            "_enabled": "true",
+                            "_order": "2",
+                            "_prefix": "-out",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        },
+                        {
+                            "format": {
+                                "fileTypes": {
+                                    "filetype": {
+                                        "_name": "XFM file",
+                                        "_extension": "xfm",
+                                        "_description": "MNC transformation"
+                                    }
+                                },
+                                "_type": "File",
+                                "_cardinality": "1"
+                            },
+                            "_id": "FLIRTnii.gz_1.OutputMatrixFile",
+                            "_name": "Output Matrix File",
+                            "_description": "Outputs the matrix in 4x4 ascii format.\nMust specify <matrix-filename>.",
+                            "_required": "false",
+                            "_enabled": "false",
+                            "_order": "4",
+                            "_prefix": "-omat",
+                            "_prefixSpaced": "true",
+                            "_prefixAllArgs": "false"
+                        }
+                    ],
+                    "executableAuthors": {
+                        "author": [
+                            {
+                                "_fullName": "Steve Smith",
+                                "_email": "steve@fmrib.ox.ac.uk",
+                                "_website": "http://www.fmrib.ox.ac.uk/Members/steve "
+                            },
+                            {
+                                "_fullName": "Mark Jenkinson",
+                                "_email": "mark@fmrib.ox.ac.uk",
+                                "_website": "http://users.fmrib.ox.ac.uk/~mark/ "
+                            }
+                        ]
+                    },
+                    "license": "http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html\n\nLICENCE\n\nFMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford\n(the \"Software\")\n\nThe Software remains the property of the University of Oxford (\"the\nUniversity\").\n\nThe Software is distributed \"AS IS\" under this Licence solely for\nnon-commercial use in the hope that it will be useful, but in order\nthat the University as a charitable foundation protects its assets for\nthe benefit of its educational and research purposes, the University\nmakes clear that no condition is made or to be implied, nor is any\nwarranty given or to be implied, as to the accuracy of the Software,\nor that it will be suitable for any particular purpose or for use\nunder any specific conditions. Furthermore, the University disclaims\nall responsibility for the use which is made of the Software. It\nfurther disclaims any liability for the outcomes arising from using\nthe Software.\n\nThe Licensee agrees to indemnify the University and hold the\nUniversity harmless from and against any and all claims, damages and\nliabilities asserted by third parties (including claims for\nnegligence) which arise directly or indirectly from the use of the\nSoftware or the sale of any products based on the Software.\n\nNo part of the Software may be reproduced, modified, transmitted or\ntransferred in any form or by any means, electronic or mechanical,\nwithout the express permission of the University. The permission of\nthe University is not required if the said reproduction, modification,\ntransmission or transference is done without financial return, the\nconditions of this Licence are imposed upon the receiver of the\nproduct, and all original and amended source code is included in any\ntransmitted product. You may be held legally responsible for any\ncopyright infringement that is caused or encouraged by your failure to\nabide by these terms and conditions.\n\nYou are not permitted under this Licence to use this Software\ncommercially. Use for which any financial return is received shall be\ndefined as commercial use, and includes (1) integration of all or part\nof the source code or the Software into a product for sale or license\nby or on behalf of Licensee to third parties or (2) use of the\nSoftware or any derivative of it for research with the final aim of\ndeveloping software products for sale or license to a third party or\n(3) use of the Software or any derivative of it for research with the\nfinal aim of developing non-software products for sale or license to a\nthird party, or (4) use of the Software to provide any service to an\nexternal organisation for which payment is received. If you are\ninterested in using the Software commercially, please contact Isis\nInnovation Limited (\"Isis\"), the technology transfer company of the\nUniversity, to negotiate a licence. Contact details are:\ninnovation@isis.ox.ac.uk quoting reference BS/3497.",
+                    "_id": "FLIRTnii.gz_1",
+                    "_name": "FLIRT (nii.gz)",
+                    "_package": "FSL",
+                    "_version": "4.1.4",
+                    "_description": "FLIRT (FMRIB's Linear Image Registration Tool) is a fully automated robust and accurate tool for linear (affine) intra- and inter-modal brain image registration. ",
+                    "_icon": "0",
+                    "_posX": "40",
+                    "_posY": "49",
+                    "_sourceCode": "",
+                    "_location": "pipeline://cranium.loni.usc.edu/flirt",
+                    "_executableVersion": "4.1.4"
+                },
                 "_id": "Untitled_1",
                 "_name": "Untitled",
                 "_posX": "0",

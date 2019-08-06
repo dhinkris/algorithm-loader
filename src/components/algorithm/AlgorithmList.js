@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon, Collapse, Button,Row, Col } from 'antd';
+import { Layout, Menu, Icon, Collapse, Button,Row, Col, Tag } from 'antd';
 import algorithm from '../../data/schema';
 import AlgorithmGenerator from './AlgorithmGenerator';
-
-const { Header, Content, Footer, Sider,  } = Layout;
+import axios from 'axios';
+const { Header, Content, Footer, Sider, Upload } = Layout;
 const Panel = Collapse.Panel;
 
 const customPanelStyle = {
@@ -17,6 +17,7 @@ const mainAlgorithmSpace=[]
 class AlgorithmList extends Component{
     state={
         addedAlgorithmList:[],
+        uploadedFiles: null
     }
     handleClickAdd=(algorithm)=> {
         mainAlgorithmSpace.push(algorithm)
@@ -31,6 +32,32 @@ class AlgorithmList extends Component{
             addedAlgorithmList: mainAlgorithmSpace
         })
     }
+    handleUpload=(e)=>{
+        this.setState({
+            uploadedFiles: e.target.files[0],
+            loaded: 0
+        })
+    }
+
+    handleValidate=() => {
+        const data = new FormData()
+        data.append('file', this.state.uploadedFiles)
+        axios.post("http://localhost:8000/uploadfile", data, {
+            // receive two    parameter endpoint url ,form data
+        })
+            .then(res => { // then print response status
+                console.log(res.statusText)
+            })
+        
+
+    }
+    handleRun=(pipeline)=> {
+
+    }
+    handleCancel=()=>{
+
+    }
+
     render(){
         return(
             <Layout>
@@ -56,21 +83,35 @@ class AlgorithmList extends Component{
                     <Header style={{ background: '#fff', padding: 0 }} />
                     <Content style={{ margin: '24px 16px 0' }}>
                         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                            <Row gutter={24}>
-                                <Col span={24}>
-                                    <Collapse bordered={false} >
-                                        {this.state.addedAlgorithmList.map((addedAlgorithm, index) => {
-                                            return(
-                                                addedAlgorithm!==null?<Panel forceRender header={<React.Fragment>{addedAlgorithm.name+'_'+(index)}</React.Fragment>} key={index} style={customPanelStyle}>
-                                                    <AlgorithmGenerator algorithm={addedAlgorithm} index={index} name={addedAlgorithm.name}/>
-                                                    <Button onClick={()=>this.handleClickRemove(addedAlgorithm)} style={{paddingLeft:'50'}}>Delete</Button>
-                                                </Panel>:null
-                                            )
-                                        })}
-                                    </Collapse>
-                                </Col>
-                            </Row>
+
+                            <div style={{ marginTop: 20 }}>
+                                <Row gutter={24}>
+                                    <Col span={18}>
+                                        Algorithm space
+                                        <Collapse bordered={false} >
+                                            {this.state.addedAlgorithmList.map((addedAlgorithm, index) => {
+                                                return(
+                                                    addedAlgorithm!==null?<Panel forceRender header={<React.Fragment>{addedAlgorithm.name+'_'+(index)}</React.Fragment>} key={index} style={customPanelStyle}>
+                                                        <AlgorithmGenerator algorithm={addedAlgorithm} index={index} name={addedAlgorithm.name}/>
+                                                        <Button onClick={()=>this.handleClickRemove(addedAlgorithm)} style={{paddingLeft:'50'}}>Delete</Button>
+                                                    </Panel>:null
+                                                )
+                                            })}
+                                        </Collapse>
+                                    </Col>
+                                    <div style={{color: "#0eff0c", border: 10}}>
+                                        <Col span={6}>
+                                            <input type="file" multiple id="files" name="file" onChange={this.handleValidate}/>
+                                        </Col>
+                                    </div>
+                                </Row>
+                            </div>
+
+                            <Tag>Invalid. Validate Again!</Tag>
                         </div>
+                        <Button type="dashed" onClick={this.handleValidate}>Validate</Button>
+                        <Button type="primary" onClick={this.handleRun}>Run</Button>
+                        <Button onClick={this.handleCancel}>Cancel</Button>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
                     </Footer>

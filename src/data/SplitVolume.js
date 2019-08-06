@@ -1,4 +1,4 @@
-const command=[
+const SplitVolume=[
     {
         "inputs": [
             {
@@ -30,4 +30,4 @@ const command=[
 
 
 ]
-export default command;
+export default SplitVolume;
