@@ -1,0 +1,48 @@
+{ 
+    "name":"Segment brain",
+    "command-line": "segmentBrain [IN_FILE] [OUT_FILE] [TYPE]",
+    "input":[
+        {
+            "command-line-flag": "--in_file",
+            "name": "In file",
+            "optional": false,
+            "list": false,
+            "command-line-key": "[IN_FILE]",
+            "type": "File",
+            "id": "input_in_file",
+            "description": "An existing file name. Input file."
+        },
+        {
+            "command-line-flag": "--type",
+            "name": "Type of segmentation",
+            "optional": false,
+            "list": false,
+            "command-line-key": "[TYPE]",
+            "type": "String",
+            "id": "input_type",
+            "description": "A flag that represents what kind of segmentation need to be performed (e.g. Whole brain before reorientation, 9 label segmentation, ventriculomegaly)"
+        },
+        {
+            "command-line-flag": "--out_file",
+            "name": "Out mask file",
+            "optional": true,
+            "list": false,
+            "command-line-key": "[OUT_FILE]",
+            "type": "String",
+            "id": "input_out_file",
+            "description": "A file name. Segmented output file."
+        }
+    ],
+    "output-files": [
+        {
+            "path-template": "[OUT_FILE]",
+            "optional": true,
+            "type": "File",
+            "name": "Out file",
+            "id": "output_out_file"
+        }
+    ],
+    "tool-version":"",
+    "schema-version":"1.0",
+    "description":"Segment brain"
+}
