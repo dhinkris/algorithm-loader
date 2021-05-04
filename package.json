@@ -6,7 +6,7 @@
     "@ant-design/icons": "^4.6.2",
     "@antv/x6": "^1.17.3",
     "antd": "^3.12.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "fs": "0.0.1-security",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
