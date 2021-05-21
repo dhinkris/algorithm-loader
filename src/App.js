@@ -15,19 +15,34 @@
 
 // export default App;
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import traverse from './utils/traverse';
 // import SampleFlow from './algorithm/ConnectPipeline'
+import HomePage from './pages/Homepage';
+import AlgorithmDetailsPage from './pages/AlgorithmDetailsPage';
+import ConnectPipeline from './algorithm/ConnectPipeline';
+import history from './history';
+import {
+  Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 traverse()
-// import ConnectPipeline from './algorithm/ConnectPipeline';
-class App extends Component{
-  render(){
-    return(
-        <div>
-          {/* <SampleFlow/> */}
-          <div id="container"></div>
-          {/* <ConnectPipeline/> */}
-        </div>
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {/* <SampleFlow/> */}
+        <div id="container"></div>
+        {/* <ConnectPipeline /> */}
+        <Router history={history}>
+          <Switch>
+            <Route path="/home" exact component={() => <HomePage />} />
+            <Route path="/algorithm/details" component={AlgorithmDetailsPage} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }
