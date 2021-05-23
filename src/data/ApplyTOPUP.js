@@ -1,4 +1,4 @@
-{
+const ApplyTOPUP = {
     "inputs": [
         {
             "command-line-flag": "--args",
@@ -160,3 +160,5 @@
     "docker-image": "glatard/nipype_fsl",
     "description": "ApplyTOPUP, as implemented in Nipype (module: nipype.interfaces.fsl, interface: ApplyTOPUP)."
 }
+
+export default ApplyTOPUP;

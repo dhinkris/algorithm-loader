@@ -1,4 +1,4 @@
-{
+const ApplyMask = {
     "inputs": [
         {
             "command-line-flag": "--args",
@@ -130,3 +130,5 @@
     "docker-image": "glatard/nipype_fsl",
     "description": "ApplyMask, as implemented in Nipype (module: nipype.interfaces.fsl, interface: ApplyMask)."
 }
+
+export default ApplyMask;
